@@ -51,7 +51,7 @@ Pliki nagłówkowe biblioteki SVT-AV1.
 install -d build
 cd build
 %cmake .. \
-%ifnarch %{x8664} x32
+%ifnarch %{x8664}
 	-DCOMPILE_C_ONLY=ON
 %endif
 
