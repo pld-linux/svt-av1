@@ -1,15 +1,15 @@
 Summary:	Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder)
 Summary(pl.UTF-8):	Scalable Video Technology dla AV1 (koder i dekoder SVT-AV1)
 Name:		svt-av1
-Version:	0.9.1
+Version:	1.4.1
 Release:	1
 License:	BSD
 Group:		Libraries
-#Source0Download: https://github.com/AOMediaCodec/SVT-AV1/tags
-Source0:	https://github.com/AOMediaCodec/SVT-AV1/archive/v%{version}/SVT-AV1-%{version}.tar.gz
-# Source0-md5:	2aa26d4fbcd4b9a0702324aee168d5a3
-URL:		https://github.com/AOMediaCodec/SVT-AV1
-BuildRequires:	cmake >= 3.5.1
+#Source0Download: https://gitlab.com/AOMediaCodec/SVT-AV1/-/releases
+Source0:	https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v%{version}/SVT-AV1-v%{version}.tar.bz2
+# Source0-md5:	10fbfc2da4f02bdcecdb3d5fba341e78
+URL:		https://gitlab.com/AOMediaCodec/SVT-AV1
+BuildRequires:	cmake >= 3.16
 BuildRequires:	libstdc++-devel >= 6:5.4
 BuildRequires:	rpmbuild(macros) >= 1.605
 %ifarch %{x8664}
@@ -46,17 +46,15 @@ Header files for SVT-AV1 library.
 Pliki nagłówkowe biblioteki SVT-AV1.
 
 %prep
-%setup -q -n SVT-AV1-%{version}
+%setup -q -n SVT-AV1-v%{version}
 
 %build
-install -d build
-cd build
-%cmake .. \
+%cmake -B build \
 %ifnarch %{x8664}
 	-DCOMPILE_C_ONLY=ON
 %endif
 
-%{__make}
+%{__make} -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -78,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libSvtAv1Dec.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libSvtAv1Dec.so.0
 %attr(755,root,root) %{_libdir}/libSvtAv1Enc.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libSvtAv1Enc.so.0
+%attr(755,root,root) %ghost %{_libdir}/libSvtAv1Enc.so.1
 
 %files devel
 %defattr(644,root,root,755)
