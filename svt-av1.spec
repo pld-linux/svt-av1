@@ -1,3 +1,4 @@
+# TODO: system cpuinfo (when released? note: different project than packaged in cpuinfo.spec)
 Summary:	Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder)
 Summary(pl.UTF-8):	Scalable Video Technology dla AV1 (koder i dekoder SVT-AV1)
 Name:		svt-av1
