@@ -2,20 +2,20 @@
 Summary:	Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder)
 Summary(pl.UTF-8):	Scalable Video Technology dla AV1 (koder i dekoder SVT-AV1)
 Name:		svt-av1
-Version:	2.1.0
+Version:	2.2.1
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://gitlab.com/AOMediaCodec/SVT-AV1/-/releases
 Source0:	https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v%{version}/SVT-AV1-v%{version}.tar.bz2
-# Source0-md5:	79404543e5adbd5c23d537352e9f4ba6
+# Source0-md5:	975ab9ee4fd0dc08eba47b31bae15c78
 URL:		https://gitlab.com/AOMediaCodec/SVT-AV1
 BuildRequires:	cmake >= 3.16
 BuildRequires:	libstdc++-devel >= 6:5.4
 BuildRequires:	rpmbuild(macros) >= 1.605
 %ifarch %{x8664}
-# or nasm >= 2.14
-BuildRequires:	yasm >= 1.2.0
+# or yasm >= 1.2.0
+BuildRequires:	nasm >= 2.14
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -72,17 +72,20 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG.md LICENSE.md PATENTS.md README.md 
-%attr(755,root,root) %{_bindir}/SvtAv1DecApp
 %attr(755,root,root) %{_bindir}/SvtAv1EncApp
-%attr(755,root,root) %{_libdir}/libSvtAv1Dec.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libSvtAv1Dec.so.0
 %attr(755,root,root) %{_libdir}/libSvtAv1Enc.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libSvtAv1Enc.so.2
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libSvtAv1Dec.so
 %attr(755,root,root) %{_libdir}/libSvtAv1Enc.so
-%{_includedir}/svt-av1
-%{_pkgconfigdir}/SvtAv1Dec.pc
+# dir also used by svt-av1-dec built from older package
+%dir %{_includedir}/svt-av1
+%{_includedir}/svt-av1/EbDebugMacros.h
+%{_includedir}/svt-av1/EbSvtAv1.h
+%{_includedir}/svt-av1/EbSvtAv1Enc.h
+%{_includedir}/svt-av1/EbSvtAv1ErrorCodes.h
+%{_includedir}/svt-av1/EbSvtAv1ExtFrameBuf.h
+%{_includedir}/svt-av1/EbSvtAv1Formats.h
+%{_includedir}/svt-av1/EbSvtAv1Metadata.h
 %{_pkgconfigdir}/SvtAv1Enc.pc
