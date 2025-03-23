@@ -2,13 +2,13 @@
 Summary:	Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder)
 Summary(pl.UTF-8):	Scalable Video Technology dla AV1 (koder i dekoder SVT-AV1)
 Name:		svt-av1
-Version:	2.3.0
+Version:	3.0.1
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://gitlab.com/AOMediaCodec/SVT-AV1/-/releases
 Source0:	https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v%{version}/SVT-AV1-v%{version}.tar.bz2
-# Source0-md5:	a86cac2227942f6d8e17ca1fdcac1627
+# Source0-md5:	f5ba568f3ea6b57c6d315957265d69d7
 URL:		https://gitlab.com/AOMediaCodec/SVT-AV1
 BuildRequires:	cmake >= 3.16
 BuildRequires:	libstdc++-devel >= 6:5.4
@@ -74,7 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGELOG.md LICENSE.md PATENTS.md README.md 
 %attr(755,root,root) %{_bindir}/SvtAv1EncApp
 %attr(755,root,root) %{_libdir}/libSvtAv1Enc.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libSvtAv1Enc.so.2
+%attr(755,root,root) %ghost %{_libdir}/libSvtAv1Enc.so.3
 
 %files devel
 %defattr(644,root,root,755)
@@ -85,7 +85,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/svt-av1/EbSvtAv1.h
 %{_includedir}/svt-av1/EbSvtAv1Enc.h
 %{_includedir}/svt-av1/EbSvtAv1ErrorCodes.h
-%{_includedir}/svt-av1/EbSvtAv1ExtFrameBuf.h
 %{_includedir}/svt-av1/EbSvtAv1Formats.h
 %{_includedir}/svt-av1/EbSvtAv1Metadata.h
 %{_pkgconfigdir}/SvtAv1Enc.pc
