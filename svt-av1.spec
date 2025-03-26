@@ -1,9 +1,8 @@
-# TODO: system cpuinfo (when released? note: different project than packaged in cpuinfo.spec)
 Summary:	Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder)
 Summary(pl.UTF-8):	Scalable Video Technology dla AV1 (koder i dekoder SVT-AV1)
 Name:		svt-av1
 Version:	3.0.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 #Source0Download: https://gitlab.com/AOMediaCodec/SVT-AV1/-/releases
@@ -14,6 +13,7 @@ BuildRequires:	cmake >= 3.16
 BuildRequires:	libstdc++-devel >= 6:5.4
 BuildRequires:	rpmbuild(macros) >= 1.605
 %ifarch %{x8664}
+BuildRequires:	libcpuinfo-devel
 # or yasm >= 1.2.0
 BuildRequires:	nasm >= 2.14
 %endif
