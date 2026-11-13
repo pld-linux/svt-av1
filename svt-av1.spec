@@ -1,13 +1,13 @@
 Summary:	Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder)
 Summary(pl.UTF-8):	Scalable Video Technology dla AV1 (koder i dekoder SVT-AV1)
 Name:		svt-av1
-Version:	4.2.0
+Version:	4.3.0
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://gitlab.com/AOMediaCodec/SVT-AV1/-/releases
 Source0:	https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v%{version}/SVT-AV1-v%{version}.tar.bz2
-# Source0-md5:	e2f6a997ef7ced90dbe8569b2fca5968
+# Source0-md5:	6fa1408f50fd8df628d2afd1d6906832
 URL:		https://gitlab.com/AOMediaCodec/SVT-AV1
 BuildRequires:	cmake >= 3.16
 BuildRequires:	libstdc++-devel >= 6:5.4
@@ -38,7 +38,7 @@ Implementacja dekodera ma na celu dalsze badania nad kodekiem.
 Summary:	Header files for SVT-AV1 library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki SVT-AV1
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}%{?_isa} = %{version}-%{release}
 
 %description devel
 Header files for SVT-AV1 library.
